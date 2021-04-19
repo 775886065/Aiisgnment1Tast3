@@ -1,0 +1,3 @@
+select distinct LastName, FirstName, Entry.MemberID 
+from Entry, Member 
+where Entry.MemberID=Member.MemberID and Year!=2013 and Entry.MemberID not in (select MemberID from Entry where Year=2013);

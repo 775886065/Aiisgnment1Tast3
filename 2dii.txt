@@ -1,0 +1,6 @@
+select LastName, FirstName, MemberID from Member
+ where not exists (
+select distinct Year from Entry as E 
+where not exists (
+select * from Entry 
+where Member.MemberID=Entry.MemberID and E.Year=Entry.Year));
